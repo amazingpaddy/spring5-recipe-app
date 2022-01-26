@@ -11,8 +11,7 @@ public class Notes {
 
   @OneToOne private Recipe recipe;
 
-  @Lob
-  private String recipeNotes;
+  @Lob private String recipeNotes;
 
   public long getId() {
     return id;

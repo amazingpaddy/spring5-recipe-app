@@ -1,6 +1,7 @@
 package guru.springframework.domain;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -117,6 +118,7 @@ public class Recipe {
 
   public void setNotes(Notes notes) {
     this.notes = notes;
+    this.notes.setRecipe(this);
   }
 
   public Set<Ingredient> getIngredients() {
@@ -125,6 +127,12 @@ public class Recipe {
 
   public void setIngredients(Set<Ingredient> ingredients) {
     this.ingredients = ingredients;
+  }
+
+  public Recipe addIngredient(Ingredient ingredient) {
+    ingredient.setRecipe(this);
+    this.ingredients.add(ingredient);
+    return this;
   }
 
   public Difficulty getDifficulty() {
@@ -141,5 +149,9 @@ public class Recipe {
 
   public void setCategories(Set<Category> categories) {
     this.categories = categories;
+  }
+
+  public void addCategories(Category... categories) {
+    this.categories.addAll(Arrays.asList(categories));
   }
 }

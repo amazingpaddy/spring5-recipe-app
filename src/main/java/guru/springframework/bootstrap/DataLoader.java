@@ -156,7 +156,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
             
             Serve vegetable biryani with a side of raita.
             """);
-    Notes briyaniNotes = new Notes(briyani);
+    Notes briyaniNotes = new Notes();
     briyaniNotes.setRecipeNotes("""
             Biryani is a rice dish made with layers of rice, spices and traditionally meat (but it our case veggies!).
             
@@ -185,16 +185,15 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
             This process is called “dum” and hence it’s also known as Vegetable Dum Biryani.
             """);
     briyani.setNotes(briyaniNotes);
-    briyani.getIngredients().add(new Ingredient("Basmati Rice", new BigDecimal(1), unitOfMeasureCup, briyani));
-    briyani.getIngredients().add(new Ingredient("Ghee", new BigDecimal(2), unitOfMeasureTablespoon, briyani));
-    briyani.getIngredients().add(new Ingredient("Ginger Garlic paste", new BigDecimal(2), unitOfMeasureTeaspoon, briyani));
-    briyani.getIngredients().add(new Ingredient("Vegetables", new BigDecimal(2), unitOfMeasureEach, briyani));
-    briyani.getIngredients().add(new Ingredient("Salt", new BigDecimal(2), unitOfMeasureTeaspoon, briyani));
-    briyani.getIngredients().add(new Ingredient("Water", new BigDecimal(2), unitOfMeasurePint, briyani));
-    briyani.getIngredients().add(new Ingredient("Cinnamon", new BigDecimal(2), unitOfMeasureDash, briyani));
-
-    briyani.getCategories().add(indianCategory);
-    briyani.getCategories().add(persianCategory);
+    briyani.addIngredient(new Ingredient("Basmati Rice", new BigDecimal(1), unitOfMeasureCup));
+    briyani.addIngredient(new Ingredient("Ghee", new BigDecimal(2), unitOfMeasureTablespoon));
+    briyani.addIngredient(new Ingredient("Ginger Garlic paste", new BigDecimal(2), unitOfMeasureTeaspoon));
+    briyani.addIngredient(new Ingredient("Vegetables", new BigDecimal(2), unitOfMeasureEach));
+    briyani.addIngredient(new Ingredient("Salt", new BigDecimal(2), unitOfMeasureTeaspoon));
+    briyani.addIngredient(new Ingredient("Water", new BigDecimal(2), unitOfMeasurePint));
+    briyani.addIngredient(new Ingredient("Cinnamon", new BigDecimal(2), unitOfMeasureDash));
+    
+    briyani.addCategories(indianCategory, persianCategory);
     recipes.add(briyani);
 
     Recipe tomYumSoup = new Recipe();
@@ -213,7 +212,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
              Serve as is, or over zucchini noodles, kelp noodles, or cooked rice noodles. You could also serve it over white rice or brown rice. Garnish with fresh cilantro for a pop of color (optional).
             Store leftovers covered in the refrigerator up to 4-5 days, or in the freezer up to 1 month. Reheat on the stovetop, covered, until warmed through.
             """);
-    Notes tomYumNotes = new Notes(tomYumSoup);
+    Notes tomYumNotes = new Notes();
     tomYumNotes.setRecipeNotes("""
             I was swooning over the recipe but didn’t have a number of the ingredients, so I started making swaps and it turned out lovely.
             
@@ -222,17 +221,16 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
             Chances are most of you don’t have the more traditional items on hand either. So I thought I’d share my “lazy girl” version in the event you want soup but don’t want to make a trip to the grocery store.
             """);
     tomYumSoup.setNotes(tomYumNotes);
-    tomYumSoup.getIngredients().add(new Ingredient("Sliced shiitake mushrooms", new BigDecimal(1), unitOfMeasureCup, tomYumSoup));
-    tomYumSoup.getIngredients().add(new Ingredient("Vegetable Broth", new BigDecimal(2), unitOfMeasureCup, tomYumSoup));
-    tomYumSoup.getIngredients().add(new Ingredient("coconut oil", new BigDecimal(2), unitOfMeasureTablespoon, tomYumSoup));
-    tomYumSoup.getIngredients().add(new Ingredient("Fresh minced ginger", new BigDecimal(2), unitOfMeasureTeaspoon, tomYumSoup));
-    tomYumSoup.getIngredients().add(new Ingredient("Vegetables", new BigDecimal(2), unitOfMeasureEach, tomYumSoup));
-    tomYumSoup.getIngredients().add(new Ingredient("Salt", new BigDecimal(2), unitOfMeasureTeaspoon, tomYumSoup));
-    tomYumSoup.getIngredients().add(new Ingredient("Lemon", new BigDecimal(2), unitOfMeasurePint, tomYumSoup));
-    tomYumSoup.getIngredients().add(new Ingredient("Red chili peppers", new BigDecimal(2), unitOfMeasureDash, tomYumSoup));
-
-    tomYumSoup.getCategories().add(thaiCategory);
-    tomYumSoup.getCategories().add(indianCategory);
+    tomYumSoup.addIngredient(new Ingredient("Sliced shiitake mushrooms", new BigDecimal(1), unitOfMeasureCup));
+    tomYumSoup.addIngredient(new Ingredient("Vegetable Broth", new BigDecimal(2), unitOfMeasureCup));
+    tomYumSoup.addIngredient(new Ingredient("coconut oil", new BigDecimal(2), unitOfMeasureTablespoon));
+    tomYumSoup.addIngredient(new Ingredient("Fresh minced ginger", new BigDecimal(2), unitOfMeasureTeaspoon));
+    tomYumSoup.addIngredient(new Ingredient("Vegetables", new BigDecimal(2), unitOfMeasureEach));
+    tomYumSoup.addIngredient(new Ingredient("Salt", new BigDecimal(2), unitOfMeasureTeaspoon));
+    tomYumSoup.addIngredient(new Ingredient("Lemon", new BigDecimal(2), unitOfMeasurePint));
+    tomYumSoup.addIngredient(new Ingredient("Red chili peppers", new BigDecimal(2), unitOfMeasureDash));
+    
+    tomYumSoup.addCategories(thaiCategory, indianCategory);
     recipes.add(tomYumSoup);
     return recipes;
   }

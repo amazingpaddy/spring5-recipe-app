@@ -19,6 +19,7 @@ public class IndexController {
   public String getIndexPage(Model model) {
     log.info("{}", "--->  Preparing the recipes...!!");
     model.addAttribute("recipes", recipeService.getRecipes());
+    log.info("fetched recipe size - {}", recipeService.getRecipes().size());
     return "index";
   }
 }
